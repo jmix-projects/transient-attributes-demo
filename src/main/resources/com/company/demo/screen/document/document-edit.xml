@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://documentEdit.caption"
+        focusComponent="form">
+    <data>
+        <instance id="documentDc"
+                  class="com.company.demo.entity.Document">
+            <fetchPlan extends="_base">
+                <property name="manager" fetchPlan="_base"/>
+                <property name="salespersons" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader id="documentDl"/>
+            <collection id="salespersonsDc" property="salespersons"/>
+        </instance>
+
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="windowCommitAndClose" caption="msg:///actions.Ok"
+                icon="EDITOR_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="windowClose"
+                caption="msg:///actions.Close"
+                icon="EDITOR_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true" expand="editActions">
+        <form id="form" dataContainer="documentDc">
+            <column width="350px">
+                <dateField id="dateField" property="date"/>
+                <textField id="notesField" property="notes"/>
+                <entityPicker id="managerField" property="manager">
+                    <actions>
+                        <action id="entityLookup" type="entity_lookup"/>
+                        <action id="entityClear" type="entity_clear"/>
+                    </actions>
+                </entityPicker>
+            </column>
+        </form>
+        <table id="salespersonsTable" height="300px" width="500px" dataContainer="salespersonsDc">
+            <actions>
+                <action id="add" type="add"/>
+                <action id="exclude" type="exclude"/>
+            </actions>
+            <buttonsPanel alwaysVisible="true">
+                <button id="salespersonsTableAddBtn" action="salespersonsTable.add"/>
+                <button id="salespersonsTableExcludeBtn" action="salespersonsTable.exclude"/>
+            </buttonsPanel>
+            <columns>
+                <column id="name"/>
+            </columns>
+        </table>
+        <hbox id="editActions" spacing="true">
+            <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
+            <button id="closeBtn" action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

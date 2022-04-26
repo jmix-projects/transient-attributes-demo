@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="1" author="demo">
+        <insert tableName="ROLE">
+            <column name="ID" value="8ed72cf3-7582-42e4-8195-2e45710872d8"/>
+            <column name="VERSION" value="1"/>
+            <column name="CODE" value="manager"/>
+            <column name="NAME" value="Manager"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2" author="demo">
+        <insert tableName="ROLE">
+            <column name="ID" value="4565b63a-9cc0-4489-8c06-6bb29550fc73"/>
+            <column name="VERSION" value="1"/>
+            <column name="CODE" value="salesperson"/>
+            <column name="NAME" value="Salesperson"/>
+        </insert>
+    </changeSet>
+    
+    <changeSet id="3" author="demo">
+        <insert tableName="ACTOR">
+            <column name="ID" value="5ca3d5b4-c46d-428c-917d-663ea7246b5f"/>
+            <column name="VERSION" value="1"/>
+            <column name="NAME" value="Alice"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="4" author="demo">
+        <insert tableName="ACTOR">
+            <column name="ID" value="66bd921d-eb1f-46a3-8bd6-67e225b4e8e7"/>
+            <column name="VERSION" value="1"/>
+            <column name="NAME" value="Bob"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="5" author="demo">
+        <insert tableName="ACTOR">
+            <column name="ID" value="4e25b677-c8a8-43c8-9db2-3b6a13be7dce"/>
+            <column name="VERSION" value="1"/>
+            <column name="NAME" value="Joe"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="6" author="demo">
+        <insert tableName="ACTOR">
+            <column name="ID" value="2271bef5-6e00-496a-a5b0-4328f558f172"/>
+            <column name="VERSION" value="1"/>
+            <column name="NAME" value="Jane"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
